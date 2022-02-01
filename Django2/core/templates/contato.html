@@ -1,0 +1,19 @@
+{%  load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    {%  bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+    <h1>Contato</h1>
+        {% bootstrap_messages %} <!-- Retorno de mensagem como: Contato enviado, erro no envio, etc. -->
+        <form action="{% url 'contato' %}" method="post" class="form" autocomplete="off" > <!-- Autocomplete off nao preencher automatico com dados do cookie -->
+            {% csrf_token %} <!-- token de segurança obrigatorio em todos formularios cada form tem seu token, quando enviamos os dados o csrf valida se nao teve alterações entre o envio e recebimento do formulario -->
+        </form>
+    </div>
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>
